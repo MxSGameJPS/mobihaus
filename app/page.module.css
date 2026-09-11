@@ -491,18 +491,32 @@
   gap: 30px;
   padding: 70px 0;
 }
-.statBox b {
-  display: block;
+.statBox {
+  display: flex;
+  flex-direction: column;
+}
+.statNumber {
+  display: flex;
+  align-items: baseline;
   font-family: var(--font-mono);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.02em;
 }
-.statBox span {
+.statNumber [data-counter] {
+  font-size: inherit;
+}
+.statSuffix {
+  font-size: 0.65em;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.statLabel {
   font-size: 0.95rem;
   font-weight: 500;
-  opacity: 0.75;
+  opacity: 0.8;
+  margin-top: 6px;
 }
 
 /* ============ ABOUT / location ============ */

@@ -281,11 +281,11 @@ export default function LandingClient() {
           <div className={styles.statsGrid} data-reveal-group>
             {STATS.map((s) => (
               <div className={styles.statBox} key={s.label} data-reveal-item>
-                <b>
+                <b className={styles.statNumber}>
                   <span data-counter={s.value}>0</span>
-                  {s.suffix}
+                  <span className={styles.statSuffix}>{s.suffix}</span>
                 </b>
-                <span>{s.label}</span>
+                <span className={styles.statLabel}>{s.label}</span>
               </div>
             ))}
           </div>
