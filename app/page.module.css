@@ -223,12 +223,23 @@
   padding: 22px 0;
   overflow: hidden;
   white-space: nowrap;
+  user-select: none;
 }
 .marqueeTrack {
-  display: inline-flex;
-  gap: 46px;
-  align-items: center;
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 120s linear infinite;
   will-change: transform;
+}
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+  padding-right: 46px;
+  flex-shrink: 0;
 }
 .marqueeItem {
   display: inline-flex;
@@ -243,6 +254,15 @@
 }
 .marqueeItem .dot {
   color: var(--volt);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 

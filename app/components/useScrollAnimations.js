@@ -91,29 +91,6 @@ export function useScrollAnimations(rootRef) {
         },
       });
 
-      // ---- Marquee infinito guiado pela direção do scroll ----
-      gsap.utils.toArray("[data-marquee]").forEach((track) => {
-        const dir = track.dataset.marquee === "left" ? -1 : 1;
-        const loop = gsap.to(track, {
-          xPercent: dir * -50,
-          repeat: -1,
-          duration: 22,
-          ease: "none",
-        });
-        ScrollTrigger.create({
-          trigger: track,
-          start: "top bottom",
-          end: "bottom top",
-          onUpdate: (self) => {
-            const v = 1 + Math.abs(self.getVelocity()) / 1200;
-            gsap.to(loop, {
-              timeScale: gsap.utils.clamp(1, 4, v),
-              duration: 0.3,
-              overwrite: true,
-            });
-          },
-        });
-      });
 
       // ---- Contadores numéricos ----
       gsap.utils.toArray("[data-counter]").forEach((el) => {

@@ -111,11 +111,11 @@ export default function LandingClient() {
 
       {/* ============ MARQUEE ============ */}
       <section className={styles.marquee} aria-hidden="true">
-        <div className={styles.marqueeTrack} data-marquee="left">
+        <div className={styles.marqueeTrack}>
           {[0, 1].map((k) => (
-            <div className={styles.marqueeItem} key={k}>
-              {MARQUEE.map((m) => (
-                <span className={styles.marqueeItem} key={m}>
+            <div className={styles.marqueeGroup} key={k}>
+              {[...MARQUEE, ...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) => (
+                <span className={styles.marqueeItem} key={`${k}-${i}`}>
                   {m} <span className="dot">◆</span>
                 </span>
               ))}
